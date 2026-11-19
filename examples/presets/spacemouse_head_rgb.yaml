@@ -1,0 +1,25 @@
+# SpaceMouse tracker collection: Cartesian actions, measured joint and TCP feedback.
+env_backend: real_robot
+env_id: spacemouse_head_rgb
+control_hz: 10
+obs:
+  state: true
+  rgb: [head]
+  image_size: [240, 320]
+  frame_stack: 1
+teleop_device: spacemouse
+teleop_event_device: stdin
+teleop_lead_cap_m: 0.05
+teleop_lead_cap_rad: 0.3
+teleop_target_speed_m_s: 0.05
+teleop_target_speed_rad_s: 0.3
+real_robot:
+  remote: 127.0.0.1:50051
+  num_joints: 7
+  action_mode: cartesian_delta
+  xyz_scale_m: 0.05
+  rot_scale_rad: 0.3
+  state_fields: [joint_pos, gripper_pos, tcp_pose, joint_vel, tcp_vel, tcp_force, tcp_torque]
+  gripper_in_action: true
+  control_hz: 10
+  max_episode_steps: 600

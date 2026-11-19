@@ -1,0 +1,22 @@
+# The real robot daemon serves the follower, head camera and joint leader with gripper.
+env_backend: real_robot
+env_id: pi05_head_rgb
+control_hz: 10
+obs:
+  state: true
+  rgb: [head]
+  image_size: [240, 320]
+  frame_stack: 1
+teleop_device: leader_arm
+robot_teleop_action_mode: joint_abs
+teleop_event_device: stdin
+teleop_onset: arm
+real_robot:
+  remote: 127.0.0.1:50051
+  num_joints: 7
+  action_mode: joint_abs
+  joint_limits: null  # Fill from this station before recording: seven [low, high] pairs in rad.
+  state_fields: [joint_pos, gripper_pos, tcp_pose, joint_vel, tcp_vel, tcp_force, tcp_torque]
+  gripper_in_action: true
+  control_hz: 10
+  max_episode_steps: 600

@@ -6,6 +6,8 @@ SQLite and exports successful human demonstrations to the pkl format accepted by
 also accept `.trajectory.sqlite3` and `.trajectory.pt`. ACT's trajectory trainer uses pkl.
 The logic lives in `real_world_rl/demos/record.py`.
 
+For RLinf π₀.₅ SFT with one head camera, see the [recording preset, LeRobot export and training data configuration](pi05-head-rgb.zh-CN.md).
+
 The recorder builds the env exactly as the HIL actor does (`build_hil_env(args, role="actor")`),
 so it takes the same env, teleop and observation flags, and the same `--config` preset, as
 `train_real_world.py hil_serl`. Pass the flags of the run that will load the demos: the recorded
